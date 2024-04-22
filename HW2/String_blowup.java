@@ -1,8 +1,6 @@
 import java.util.Scanner;
 public class String_blowup {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        String s=sc.next();
+    public static String String_blowup(String s){
         String s2="";
         int c=0;
         int d=0;
@@ -24,6 +22,11 @@ public class String_blowup {
         if(s.charAt(s.length()-1)<'0'||s.charAt(s.length()-1)>'9'){
             s2=s2+s.charAt(s.length()-1);
         }
-        System.out.println(s2);
+        return s2;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        System.out.println(String_blowup(s);
     }
 }
