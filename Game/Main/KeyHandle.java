@@ -43,7 +43,17 @@ public class KeyHandle implements KeyListener {
             right=false;
         }
     }
+
+    // Check for the move of character
     public boolean check(){
         return up || down || left || right;
+    }
+
+    // Check character is moving left or right
+    public boolean check1(){
+        if(left && right){
+            return false;
+        }
+        return left || right;
     }
 }
