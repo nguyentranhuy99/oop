@@ -1,11 +1,10 @@
-package Main;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class Main {
     public static void main(String[] args) {
-        new GameFrame();
+        long a = 20;
+        long b =30;
+        System.out.println(a/b);
     }
 }

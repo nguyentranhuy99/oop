@@ -14,16 +14,16 @@ public class KeyHandle implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code =e.getKeyCode();
         if (code == KeyEvent.VK_W){
-            up=true;
+            up = true;
         }
         if (code == KeyEvent.VK_S){
-            down=true;
+            down = true;
         }
         if (code == KeyEvent.VK_A){
-            left=true;
+            left = true;
         }
         if (code == KeyEvent.VK_D){
-            right=true;
+            right = true;
         }
     }
 
@@ -31,20 +31,20 @@ public class KeyHandle implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int code =e.getKeyCode();
         if (code == KeyEvent.VK_W){
-            up=false;
+            up = false;
         }
         if (code == KeyEvent.VK_S){
-            down=false;
+            down = false;
         }
         if (code == KeyEvent.VK_A){
-            left=false;
+            left = false;
         }
         if (code == KeyEvent.VK_D){
-            right=false;
+            right = false;
         }
     }
 
-    // Check for the move of character
+    // Check for the move of character to draw character
     public boolean check(){
         return up || down || left || right;
     }
