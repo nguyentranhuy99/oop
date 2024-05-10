@@ -103,7 +103,7 @@ public class Arrow extends Entity{
     public void update(){
 
         // Above
-        if(random1%2==0){
+        if(random1 % 2==0){
             y = y + speed;
             yCheck = y + gamePanel.tileSize-2;
             if(y > gamePanel.screenHeight + gamePanel.tileSize){
@@ -125,7 +125,6 @@ public class Arrow extends Entity{
                 }
             }
         }
-
     }
 
     // Arrow draw
@@ -135,6 +134,7 @@ public class Arrow extends Entity{
         if(random1 % 2 == 0){
             image = down;
         }
+
         // Under
         else {
             image = up;

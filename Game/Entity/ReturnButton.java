@@ -4,40 +4,36 @@ import Main.GamePanel;
 import Main.MouseHandle;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class RestartButton extends Entity {
+public class ReturnButton extends Entity {
     GamePanel gamePanel;
     BufferedImage image;
-    MouseHandle mouseHandle;
-    public boolean restart = false;
+    public MouseHandle mouseHandle;
+    public boolean click = false;
 
     // Constructor
-    public RestartButton(GamePanel gamePanel,MouseHandle mouseHandle) {
+    public ReturnButton(GamePanel gamePanel,MouseHandle mouseHandle) {
         this.gamePanel = gamePanel;
         this.mouseHandle = mouseHandle;
         setDefautValues();
         getPauseButtonImage();
-        image = restart1;
+        image = return1;
     }
 
     // Set possition
     public void setDefautValues() {
-        x = 2 * gamePanel.tileSize;
+        x = 0;
         y = 0;
     }
 
     // Get image
     public void getPauseButtonImage() {
         try {
-            restart1 = ImageIO.read((getClass().getResourceAsStream("/tiles/restart_button1.png")));
-            restart2 = ImageIO.read((getClass().getResourceAsStream("/tiles/restart_button2.png")));
+            return1 = ImageIO.read((getClass().getResourceAsStream("/tiles/return1.png")));
+            return2 = ImageIO.read((getClass().getResourceAsStream("/tiles/return2.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,21 +42,21 @@ public class RestartButton extends Entity {
     // Update
     public void update() {
         if (mouseHandle.enter) {
-            if (image == restart1) {
-                image = restart2;
+            if (image == return1) {
+                image = return2;
             }
             mouseHandle.enter = false;
         }
 
         if (mouseHandle.exit) {
-            if (image == restart2) {
-                image = restart1;
+            if (image == return2) {
+                image = return1;
             }
             mouseHandle.exit = false;
         }
 
         if (mouseHandle.click) {
-            restart = true;
+            click = true;
             mouseHandle.click = false;
         }
     }

@@ -13,19 +13,18 @@ public class Player extends Entity{
 
     GamePanel gamePanel;
     KeyHandle keyHandle;
+    String name;
 
     // Constructer
-    public Player(GamePanel gamePanel, KeyHandle keyHandle){
+    public Player(GamePanel gamePanel, KeyHandle keyHandle, String name){
         this.gamePanel = gamePanel;
         this.keyHandle = keyHandle;
+        this.name = name;
 
         setDefautValues();
 
         // Collision
         solidArea = new Rectangle(x+gamePanel.tileSize/6,y+gamePanel.tileSize/3,(gamePanel.tileSize)/2,(gamePanel.tileSize)/2);
-
-        //level of speed
-        speed = speed + gamePanel.speed;
 
         getPlayerImage();
     }
@@ -35,21 +34,21 @@ public class Player extends Entity{
         // Set player default possition
         x = 0;
         y = 320;
-        speed = 2;
+        speed = 3;
         direction = "down";
     }
 
     // Get image
     public void getPlayerImage(){
         try {
-            front1 = ImageIO.read((getClass().getResourceAsStream("/player/police_down1.png")));
-            front2 = ImageIO.read((getClass().getResourceAsStream("/player/police_down2.png")));
-            behide1 = ImageIO.read((getClass().getResourceAsStream("/player/police_up1.png")));
-            behide2 = ImageIO.read((getClass().getResourceAsStream("/player/police_up2.png")));
-            left1 = ImageIO.read((getClass().getResourceAsStream("/player/police_left1.png")));
-            left2 = ImageIO.read((getClass().getResourceAsStream("/player/police_left2.png")));
-            right1 = ImageIO.read((getClass().getResourceAsStream("/player/police_right1.png")));
-            right2 = ImageIO.read((getClass().getResourceAsStream("/player/police_right2.png")));
+            front1 = ImageIO.read((getClass().getResourceAsStream("/player/" + name + "_down1.png")));
+            front2 = ImageIO.read((getClass().getResourceAsStream("/player/"+ name + "_down2.png")));
+            behide1 = ImageIO.read((getClass().getResourceAsStream("/player/" + name + "_up1.png")));
+            behide2 = ImageIO.read((getClass().getResourceAsStream("/player/" + name + "_up2.png")));
+            left1 = ImageIO.read((getClass().getResourceAsStream("/player/" + name + "_left1.png")));
+            left2 = ImageIO.read((getClass().getResourceAsStream("/player/" + name + "_left2.png")));
+            right1 = ImageIO.read((getClass().getResourceAsStream("/player/" + name + "_right1.png")));
+            right2 = ImageIO.read((getClass().getResourceAsStream("/player/" + name + "_right2.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,7 +81,7 @@ public class Player extends Entity{
 
             // Update the frame
             spriteCount++;
-            if (spriteCount % 10 == 0) {
+            if (spriteCount % 15 == 0) {
                 spriteNum = spriteNum * -1;
                 spriteCount = 0;
             }

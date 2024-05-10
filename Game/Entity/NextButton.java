@@ -4,40 +4,36 @@ import Main.GamePanel;
 import Main.MouseHandle;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class RestartButton extends Entity {
+public class NextButton extends Entity{
     GamePanel gamePanel;
     BufferedImage image;
     MouseHandle mouseHandle;
-    public boolean restart = false;
+    public boolean click = false;
 
     // Constructor
-    public RestartButton(GamePanel gamePanel,MouseHandle mouseHandle) {
+    public NextButton(GamePanel gamePanel,MouseHandle mouseHandle) {
         this.gamePanel = gamePanel;
         this.mouseHandle = mouseHandle;
         setDefautValues();
         getPauseButtonImage();
-        image = restart1;
+        image = next1;
     }
 
     // Set possition
     public void setDefautValues() {
-        x = 2 * gamePanel.tileSize;
-        y = 0;
+        x = 11 * gamePanel.tileSize;
+        y = 6 * gamePanel.tileSize;
     }
 
     // Get image
     public void getPauseButtonImage() {
         try {
-            restart1 = ImageIO.read((getClass().getResourceAsStream("/tiles/restart_button1.png")));
-            restart2 = ImageIO.read((getClass().getResourceAsStream("/tiles/restart_button2.png")));
+            next1 = ImageIO.read((getClass().getResourceAsStream("/tiles/next1.png")));
+            next2 = ImageIO.read((getClass().getResourceAsStream("/tiles/next2.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,22 +42,28 @@ public class RestartButton extends Entity {
     // Update
     public void update() {
         if (mouseHandle.enter) {
-            if (image == restart1) {
-                image = restart2;
+            if (image == next1) {
+                image = next2;
             }
             mouseHandle.enter = false;
         }
 
         if (mouseHandle.exit) {
-            if (image == restart2) {
-                image = restart1;
+            if (image == next2) {
+                image = next1;
             }
             mouseHandle.exit = false;
         }
 
         if (mouseHandle.click) {
-            restart = true;
+            click = true;
+            // Set prevButton to prev1 if character_number = 0
+            gamePanel.prevButton.image = gamePanel.prevButton.prev1;
             mouseHandle.click = false;
+        }
+
+        if(gamePanel.character_number == 4) {
+            image = next2;
         }
     }
 

@@ -11,7 +11,12 @@ public class Entity {
 
     // Image for each character
     public BufferedImage front1, front2, behide1, behide2, left1, left2, right1, right2,up,down,coin1,coin2,treasure,treasure1;
-    public BufferedImage pause1,pause2,play1,play2,restart1,restart2;
+    // Image for button in game
+    public BufferedImage pause1, pause2, play1, play2, restart1, restart2, home1, home2 ,return1, return2;
+    //Image for button in menu
+    public BufferedImage newGame1, newGame2, character1, character2, howToPlay1, howToPlay2;
+    //Image for button in character menu
+    public BufferedImage choose1, choose2, next1, next2, prev1, prev2;
 
     // Direction
     public String direction;
