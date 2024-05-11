@@ -17,7 +17,7 @@ public class UI {
     // Images
     BufferedImage image;
     BufferedImage image2;
-    BufferedImage image3;
+    BufferedImage image3, image4;
     BufferedImage vietnam;
 
     // Character name
@@ -28,6 +28,7 @@ public class UI {
     public boolean messangeOn = false;
     public String messange = "";
     int messangeCounter = 0;
+    int spriteCount = 0;
 
     // Time
     long time;
@@ -50,6 +51,7 @@ public class UI {
             image = ImageIO.read((getClass().getResourceAsStream("/tiles/coin_1.png")));
             image2 = ImageIO.read((getClass().getResourceAsStream("/tiles/clock.png")));
             image3 = ImageIO.read((getClass().getResourceAsStream("/player/" + name[0] + "_down1.png")));
+            image4 = ImageIO.read((getClass().getResourceAsStream("/player/" + name[0] + "_down2.png")));
             vietnam = ImageIO.read((getClass().getResourceAsStream("/tiles/vietnam.png")));
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,6 +67,7 @@ public class UI {
     public void update(){
         try {
             image3 = ImageIO.read((getClass().getResourceAsStream("/player/" + name[gamePanel.character_number] + "_down1.png")));
+            image4 = ImageIO.read((getClass().getResourceAsStream("/player/" + name[gamePanel.character_number] + "_down2.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -134,7 +137,16 @@ public class UI {
             // Character state
             else if (gamePanel.character_state == true && gamePanel.guide_state == false) {
                 // Image of character
-                g2D.drawImage(image3, 6 * gamePanel.tileSize, 4 * gamePanel.tileSize, 4 * gamePanel.tileSize,4 * gamePanel.tileSize, null);
+                spriteCount ++;
+                if (spriteCount <= 10) {
+                    g2D.drawImage(image3, 6 * gamePanel.tileSize, 4 * gamePanel.tileSize, 4 * gamePanel.tileSize, 4 * gamePanel.tileSize, null);
+                }
+                else if (spriteCount > 10 && spriteCount <= 20){
+                    g2D.drawImage(image4, 6 * gamePanel.tileSize, 4 * gamePanel.tileSize, 4 * gamePanel.tileSize, 4 * gamePanel.tileSize, null);
+                    if (spriteCount == 20) {
+                        spriteCount = 0;
+                    }
+                }
 
                 //Character name
                 g2D.setFont(g2D.getFont().deriveFont(30F));
