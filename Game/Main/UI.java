@@ -21,8 +21,8 @@ public class UI {
     BufferedImage vietnam;
 
     // Character name
-    String name[] = {"police","student","alien","player","blueboy"};
-    String name2[] = {"Bing","Huy","Gogool","Code","Blue Boy (RyiSnow)"};
+    String name[] = {"police","player","student","alien","blueboy"};
+    String name2[] = {"Bing","Code","Huy","Gogool","Blue Boy (RyiSnow)"};
 
     // Messange notification
     public boolean messangeOn = false;
