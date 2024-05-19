@@ -37,6 +37,12 @@ public class GamePanel extends JPanel implements Runnable {
     int hard = 20;
     int difficult = 125;
     public int speed = 0;
+    boolean check1 = false;
+    boolean check2 = false;
+    boolean check3 = false;
+    boolean check4 = false;
+    boolean check5 = false;
+
 
     // Score
     public int score = 0;
@@ -302,13 +308,30 @@ public class GamePanel extends JPanel implements Runnable {
                     ui.showMessange("You earned a coin!");
 
                     // Hard level
-                    if (score % 30 == 0 && score > 0) {
+                    if (score == 25 && check1 == false) {
                         hard = hard * 100 / difficult;
+                        check1 = true;
                         ui.showMessange("More arrows will be shot!!!");
                     }
-                    if (score % 40 == 0 && score > 0) {
+                    if (score == 40 && check2 == false) {
                         speed = speed + 2;
+                        check2 = true;
                         ui.showMessange("The arrow will faster!!");
+                    }
+                    if (score == 60 && check3 == false) {
+                        hard = hard * 100 / difficult;
+                        check3 = true;
+                        ui.showMessange("More arrows will be shot!!!");
+                    }
+                    if (score == 80 && check4 == false) {
+                        speed = speed + 2;
+                        check4 = true;
+                        ui.showMessange("The arrow will faster!!");
+                    }
+                    if (score == 90 && check5 == false) {
+                        hard = hard * 100 / difficult;
+                        check5 = true;
+                        ui.showMessange("More arrows will be shot!!!");
                     }
                 }
 
