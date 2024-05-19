@@ -302,11 +302,11 @@ public class GamePanel extends JPanel implements Runnable {
                     ui.showMessange("You earned a coin!");
 
                     // Hard level
-                    if ((score + 1) % 30 == 0) {
+                    if (score % 30 == 0 && score > 0) {
                         hard = hard * 100 / difficult;
                         ui.showMessange("More arrows will be shot!!!");
                     }
-                    if ((score + 1) % 40 == 0) {
+                    if (score % 40 == 0 && score > 0) {
                         speed = speed + 2;
                         ui.showMessange("The arrow will faster!!");
                     }
